@@ -43,7 +43,7 @@
         	userId = userId == null ? "" :userId;
         %>
         <input type="text" id="userId" name="userId" class="form-control"
-        	   placeholder="userId" required autofocus value="<%=userId %>"> <!-- value="brown" -->
+        	   placeholder="userId" required autofocus value="brown">
         
         <label for="pass" class="sr-only">Password</label>
         <input type="password" id="pass" name="pass" value="brown1234"
