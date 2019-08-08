@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -14,7 +14,7 @@
 
 <title>Jsp</title>
 
-<script src="<%=request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
 
 <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
@@ -44,12 +44,12 @@
 				<li><a href="#">Help</a></li>
 				<%
 					/* HttpSession httpSession = request.getSession();
-					UserVo userVo = (UserVo)httpSession.getAttribute("S_USERVO"); */
-					
-					UserVo userVo = (UserVo)session.getAttribute("S_USERVO");
-					
-					String userName = "";
-		    		userName = userVo == null ? "" :userVo.getUserName();
+							UserVo userVo = (UserVo)httpSession.getAttribute("S_USERVO"); */
+							
+							User userVo = (User)session.getAttribute("S_USERVO");
+							
+							String userName = "";
+						    		userName = userVo == null ? "" :userVo.getUserName();
 				%>
 				<li><a href="#"><%=userVo.getUserName() %></a></li>
 			</ul>

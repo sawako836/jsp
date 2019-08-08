@@ -1,4 +1,4 @@
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.or.ddit.user.repository.IUserDao"%>
@@ -7,7 +7,7 @@
     pageEncoding="UTF-8"%>
     
     <%!IUserDao dao = new UserDao();%>
-    <%!List<UserVo> list = dao.getUserList(); %>
+    <%!List<User> list = dao.getUserList();%>
     
 <!DOCTYPE html>
 <html>
@@ -24,7 +24,9 @@
 		<tr>
 			<th>이름</th>
 		</tr>
-		<%for(UserVo userVo : list){ %>
+		<%
+			for(User userVo : list){
+		%>
 			<tr>
 				<td><%=userVo.getUserName() %></td>
 			</tr>

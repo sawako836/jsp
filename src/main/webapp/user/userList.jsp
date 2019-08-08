@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@page import="java.util.List"%>
-<%@page import="kr.or.ddit.user.model.UserVo"%>
+<%@page import="kr.or.ddit.user.model.User"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -15,7 +15,7 @@
 
 <title>Jsp</title>
 
-<script src="<%=request.getContextPath() %>/js/jquery-3.4.1.min.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery-3.4.1.min.js"></script>
 <link href="/bootstrap/css/bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
 
 <link href="<%=request.getContextPath()%>/css/dashboard.css" rel="stylesheet">
@@ -76,10 +76,10 @@
 				</tr>
 				
 				<%
-					List<UserVo> userList = (List<UserVo>)request.getAttribute("userList");
-				
-					for(UserVo userVo : userList){
-				%>
+									List<User> userList = (List<User>)request.getAttribute("userList");
+										
+											for(User userVo : userList){
+								%>
 				
 				<tr>
 					<td><%=userVo.getUserId() %></td>

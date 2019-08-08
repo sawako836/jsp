@@ -7,7 +7,7 @@
 	
 	<typeAliases>
 	<!-- type 안에는 클래스의 풀 네임을 적어준다. -->
-		<typeAlias alias="userVo" type="kr.or.ddit.user.model.UserVo"/>
+		<typeAlias alias="user" type="kr.or.ddit.user.model.User"/>
 	</typeAliases>
 	
   <environments default="development">
