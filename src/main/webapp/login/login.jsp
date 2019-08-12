@@ -30,11 +30,15 @@
 			$("#userId").val(userId);
 			//remember me checkbox 체크
 			$("#rememberMe").prop("checked", true);
+			$("#pass").focus();
+			
 		}
+		
+	
 		
 		//signin btn 클릭 이벤트 핸들러
 		$("#signinBtn").on("click", function(){
-			if($("#rememberMe").prop("checked")){
+			/*if($("#rememberMe").prop("checked")){
 				//setCookie("userId", $("#userId").val(), 30);
 				Cookies.set("userId", $("#userId").val(), {expires : 30});
 			}
@@ -42,7 +46,7 @@
 				//deleteCookie("userId");
 				Cookies.remove("userId");
 				
-			}
+			}*/
 			
 			//로그인 요청
 			$("#frm").submit();
@@ -103,7 +107,7 @@
         
         <div class="checkbox">
           <label>
-            <input id="rememberMe" type="checkbox" value="remember-me"> Remember me
+            <input id="rememberMe" name="rememberMe" type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
         <button id="signinBtn" class="btn btn-lg btn-primary btn-block" type="button">Sign in</button>
