@@ -1,3 +1,5 @@
+
+<%@page import="kr.or.ddit.user.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -17,6 +19,10 @@
 				<li><a href="#">Settings</a></li>
 				<li><a href="#">Profile</a></li>
 				<li><a href="#">Help</a></li>
+				<% User s_user = (User)session.getAttribute("S_USERVO"); %>
+				<li><a href="#">표현식 : <%=s_user.getUserName() %></a></li>
+				<li><a href="#">el(method) : ${S_USERVO.getUserName()}</a></li>
+				<li><a href="#">el(field) : ${S_USERVO.userName}</a></li>
 			</ul>
 			<form class="navbar-form navbar-right">
 				<input type="text" class="form-control" placeholder="Search...">
