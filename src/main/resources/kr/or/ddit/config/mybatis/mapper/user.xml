@@ -13,4 +13,10 @@
 	  	from users
 	  	where userId = #{userId} <!-- 세미콜론 넣으면 안된다 -->
 	  </select>
+	  
+	  <select id="getUserListOnlyHalf" parameterType="String" resultType="user">
+	  	select *
+	  	from users
+	  	where userId = #{userId} <!-- 세미콜론 넣으면 안된다 -->
+	  </select>
 </mapper>
