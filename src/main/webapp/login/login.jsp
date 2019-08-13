@@ -92,7 +92,7 @@
     	
 		사용자 이름 : 
 		
-      <form id="frm" class="form-signin" action="/login" method="post">
+      <form id="frm" class="form-signin" action="${pageContext.request.contextPath}/login" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
         
         <label for="userId" class="sr-only">userId</label>
