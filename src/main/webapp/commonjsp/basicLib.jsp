@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%-- <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script> --%>
+<!-- el contextPath -->
+<%-- <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script> --%>
+<!-- el cp contextPath -->
 <script src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
 <link href="<%=request.getContextPath() %>/bootstrap/css/bootstrap.css" rel="stylesheet"><!-- Bootstrap core CSS -->
 

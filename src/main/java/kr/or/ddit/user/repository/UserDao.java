@@ -50,5 +50,13 @@ public class UserDao implements IUserDao {
 		
 		return userVo;
 	}
+	
+	public List<User> getUserListOnlyHalf() {
+		SqlSession sqlSession = MybatisUtil.getSession();
+		List<User> userlist = sqlSession.selectList("user.getUserListOnlyHalf");
+		sqlSession.close();
+		
+		return userlist;
+	}
 
 }

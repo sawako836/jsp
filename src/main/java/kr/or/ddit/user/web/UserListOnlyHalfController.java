@@ -1,41 +1,29 @@
 package kr.or.ddit.user.web;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Servlet implementation class UserListOnlyHalfController
- */
-@WebServlet("/UserListOnlyHalfController")
+import kr.or.ddit.user.model.User;
+import kr.or.ddit.user.repository.UserDao;
+
+@WebServlet("/userListOnlyHalf")
 public class UserListOnlyHalfController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserListOnlyHalfController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		UserDao userDao = new UserDao();
+		
+		List<User> userList = userDao.getUserList();
+		
+		request.setAttribute("userList", userList);
+		
+		request.getRequestDispatcher("/user/userListOnlyHalf.jsp").forward(request, response);
 	}
 
 }

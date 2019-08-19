@@ -49,5 +49,17 @@ public class UserDaoTest {
 		assertEquals("브라운", userVo.getUserName());
 		assertEquals("brown1234", userVo.getPass());
 	}
+	
+	@Test
+	public void getUserListOnlyHalf() {
+		/***Given***/
+		IUserDao userDao = new UserDao();
+
+		/***When***/
+		List<User> userHalfList = userDao.getUserList();
+
+		/***Then***/
+		assertEquals(5, userHalfList.size()); // 리턴하는 값이 다르면 코드 실패
+	}
 
 }
