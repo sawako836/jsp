@@ -18,26 +18,7 @@
 <title>Jsp-basicLib</title>
 <%@ include file="/commonjsp/basicLib.jsp" %>
 <script>
-// 문서 로딩이 완료되고 나서 
-$(document).ready(function(){
-	
-	// 사용자 정보 클릭시 이벤트 핸들러
-	$('.userTr').on('click', function(){
-		
-		console.log('userTr click');
-		
-		// 클릭된 tr 태그의 자식태그(td)중 첫번째 자식의 텍스트 문자열
-		console.log($(this).children().first().text());
-		
-		// input 태그에 값 설정
-		$('#userId').val($(this).children().first().text());
-		
-		// form 태그이용 전송
-		console.log('serialize : ' + $('#frm').serialize());
-		
-		$('#frm').submit();
-	});
-});
+
 </script>
 </head>
 
@@ -61,41 +42,48 @@ $(document).ready(function(){
 		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 				
 
-<div class="row">
-	<div class="col-sm-8 blog-main">
-		<h2 class="sub-header">사용자</h2>
-		<div class="table-responsive">
-			<table class="table table-striped">
-				<tr>
-					<th>사용자 아이디</th>
-					<th>사용자 이름</th>
-					<th>사용자 별명</th>
-					<th>등록일시</th>
-				</tr>
-				
-				<%-- <%
-					List<User> userList = (List<User>)request.getAttribute("userList");
-										
-					for(User userVo : userList){%>
-				<tr>
-					<td><%=userVo.getUserId() %></td>
-					<td><%=userVo.getUserName() %></td>
-					<td></td>
-					<td></td>
-				</tr><% }%> --%>
-				
-				<%-- coretaglibrary --%>
-				<%-- for(User user : userList) --%>
-				<c:forEach items="${userList}" var="user">
-					<tr class="userTr">
-						<td>${user.userId}</td>
-						<td>${user.userName}</td>
-						<td>${user.alias}</td>
-						<td>${user.reg_dt_fmt}</td>
-					</tr>
-				</c:forEach>
-			</table>
-		</div>
+				<form class="form-horizontal" role="form">
+
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
+						<div class="col-sm-10">
+							<label class="control-label">${user.userId}</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
+						<div class="col-sm-10">
+							<label class="control-label">${user.userNm}</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="userNm" class="col-sm-2 control-label">별명</label>
+						<div class="col-sm-10">
+							<label class="control-label">${user.alias}</label>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="pass" class="col-sm-2 control-label">등록일</label>
+						<div class="col-sm-10">
+							<label class="control-label">${user.reg_dt_fmt}</label>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label for="pass" class="col-sm-2 control-label">Password</label>
+						<div class="col-sm-10">
+							<label class="control-label">${user.pass}</label>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-sm-offset-2 col-sm-10">
+							<button type="submit" class="btn btn-default">사용자 수정</button>
+						</div>
+					</div>
+				</form>
 
 		<a class="btn btn-default pull-right">사용자 등록</a>
 
