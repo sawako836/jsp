@@ -125,7 +125,7 @@ $(document).ready(function(){
 							    	</c:when>
 							    	<c:otherwise>
 										<li class=""> <!-- pagination << 화살표 -->
-											<a href="${cp }/userPagingList?page=${param.page-1}&pagesize=10">${page }
+											<a href="${cp }/userPagingList?page=${pageVo.page-1}">${page }
 											<span aria-hidden="true">&laquo;</span>
 											</a>
 							    		</li>
@@ -134,11 +134,11 @@ $(document).ready(function(){
 							    
 							<c:forEach begin="1" end="${paginationSize}" var="page">
 								<c:choose>
-									<c:when test="${page == param.page}">
+									<c:when test="${page == pageVo.page}">
 										<li class="active"><span>${page }</span></li>
 									</c:when>
 									<c:otherwise>
-										<li><a href="${cp }/userPagingList?page=${page}&pagesize=10">${page }</a></li>
+										<li><a href="${cp }/userPagingList?page=${page}">${page }</a></li>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -146,14 +146,14 @@ $(document).ready(function(){
 								<li> <!-- pagination >> 화살표 -->
 								<%-- 오른쪽으로 이동 --%>
 							    <c:choose>
-							    	<c:when test="${param.page == paginationSize }">
+							    	<c:when test="${pageVo.page == paginationSize }">
 							    		<li class="disabled">
 							    			<span aria-hidden="true">&raquo;</span>
 							    		</li>
 							    	</c:when>
 						    		<c:otherwise>
 									<li class=""> <!-- pagination << 화살표 -->
-										<a aria-label="Next" href="/userPagingList?page=${param.page+1}&pagesize=10">${page }
+										<a aria-label="Next" href="/userPagingList?page=${pageVo.page+1}">${page }
 										<span aria-hidden="true">&raquo;</span>
 										</a>
 						    		</li>

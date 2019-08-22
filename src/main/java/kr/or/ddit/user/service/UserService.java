@@ -7,6 +7,8 @@ import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
 
 import kr.or.ddit.common.model.Page;
+import kr.or.ddit.lprod.dao.LprodDao;
+import kr.or.ddit.lprod.model.Lprod;
 import kr.or.ddit.user.model.User;
 import kr.or.ddit.user.repository.IUserDao;
 import kr.or.ddit.user.repository.UserDao;
