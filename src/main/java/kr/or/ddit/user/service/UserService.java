@@ -75,4 +75,22 @@ public class UserService implements IUserService{
 		return map;
 	}
 
+	@Override
+	public int insertUser(User user) {
+		SqlSession sqlSession = MybatisUtil.getSession();
+		int insert = userDao.insertUser(sqlSession, user);
+		sqlSession.commit(); 
+		sqlSession.close();
+		return insert;
+	}
+
+	@Override
+	public int deleteUser(String userId) {
+		SqlSession sqlSession = MybatisUtil.getSession();
+		int delete = userDao.deleteUser(sqlSession, userId);
+		sqlSession.commit();  // close하기 전에 커밋
+		sqlSession.close();
+		return delete;
+	}
+
 }
