@@ -3,6 +3,8 @@ package kr.or.ddit.user.service;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.session.SqlSession;
+
 import kr.or.ddit.common.model.Page;
 import kr.or.ddit.user.model.User;
 
@@ -67,6 +69,18 @@ public interface IUserService {
 	* Method 설명 : 사용자 삭제
 	 */
 	int deleteUser(String userId);
+	
+	/**
+	 * 
+	* Method : updateUser
+	* 작성자 : PC-04
+	* 변경이력 :
+	* @param sqlSession
+	* @param user
+	* @return
+	* Method 설명 : 사용자 수정
+	 */
+	int updateUser(User user);
 
 }
 

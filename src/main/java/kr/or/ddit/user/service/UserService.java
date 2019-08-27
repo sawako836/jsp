@@ -93,4 +93,13 @@ public class UserService implements IUserService{
 		return delete;
 	}
 
+	@Override
+	public int updateUser(User user) {
+		SqlSession sqlSession = MybatisUtil.getSession();
+		int update = userDao.updateUser(sqlSession, user);
+		sqlSession.commit(); 
+		sqlSession.close();
+		return update;
+	}
+
 }
