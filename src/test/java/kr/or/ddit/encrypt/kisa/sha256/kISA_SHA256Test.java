@@ -1,4 +1,4 @@
-package encrypt.kisa.sha256;
+package kr.or.ddit.encrypt.kisa.sha256;
 
 import static org.junit.Assert.*;
 
@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import kr.or.ddit.encrypt.kisa.sha256.KISA_SHA256;
 
 public class kISA_SHA256Test {
+	
 	private static final Logger logger = LoggerFactory.getLogger(kISA_SHA256Test.class);
 
 	/**
@@ -26,6 +27,7 @@ public class kISA_SHA256Test {
 		/***When***/
 		String encryptedPass = KISA_SHA256.encrypt(pass);
 		logger.debug("encrytedPass : {}", encryptedPass);
+		System.out.println(encryptedPass);
 
 		/***Then***/
 		//assertEquals("예상값", "실제값");

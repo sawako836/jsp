@@ -99,7 +99,7 @@ $(document).ready(function(){
 								<%-- for(User user : userList) --%>
 								<c:forEach items="${userList }" var="user">
 									<tr class="userTr" data-userId="${user.userId}">
-										<input type="hidden" value="${user.userId }"/>
+										<input type="hidden" value="${user.userId}"/>
 										<td>${user.userId }</td>
 										<td>${user.userNm }</td>
 										<td>${user.alias }</td>

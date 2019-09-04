@@ -61,6 +61,7 @@ public class UserUpdateController extends HttpServlet {
 		String userNm = request.getParameter("userNm");
 		String userAlias = request.getParameter("userAlias");
 		String reg_dt = request.getParameter("reg_dt");
+		logger.debug("reg_dt : {}", reg_dt);
 		String addr1 = request.getParameter("addr1");
 		String addr2 = request.getParameter("addr2");
 		String zipcode = request.getParameter("zipcode");
@@ -82,30 +83,27 @@ public class UserUpdateController extends HttpServlet {
 			picture.write(path);
 		}
 		// 업로드 하지 않은 경우
-//		else {
-//			filename = request.getParameter("filename");
-//			path = request.getParameter("realfilename");
-//		}
-		logger.debug("test");
+		else {
+			filename = request.getParameter("filename");
+			path = request.getParameter("realfilename");
+		}
 		try {
 			reg_dt_date = new SimpleDateFormat("yyyy-MM-dd").parse(reg_dt);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		
-		User user = new User(userNm, userId, pass, reg_dt_date, userAlias, addr1, addr2, zipcode, filename, path);
+		User user = new User(userId, userNm, pass, reg_dt_date, userAlias, addr1, addr2, zipcode, filename, path);
 		int updateCnt = 0; 
-		logger.debug("test2");
-		updateCnt = userService.updateUser(user);
 		
-//		try {
-//			updateCnt = userService.updateUser(user);
-//			if(updateCnt == 1) {
-//				response.sendRedirect(request.getContextPath() + "/user?userId=" + userId);
-//			}
-//		} catch (Exception e) {
-//			doGet(request, response);
-//		}
+		try {
+			updateCnt = userService.updateUser(user);
+			if(updateCnt == 1) {
+				response.sendRedirect(request.getContextPath() + "/user?userId=" + userId);
+			}
+		} catch (Exception e) {
+			doGet(request, response);
+		}
 	}
 
 }

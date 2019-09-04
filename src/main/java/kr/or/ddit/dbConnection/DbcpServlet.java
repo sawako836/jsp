@@ -40,7 +40,7 @@ public class DbcpServlet extends HttpServlet {
 		BasicDataSource ds = new BasicDataSource();
 		ds.setDriverClassName("oracle.jdbc.driver.OracleDriver");
 		ds.setUrl("jdbc:oracle:thin:@localhost:1521:xe");
-		ds.setUsername("sem");
+		ds.setUsername("HDE");
 		ds.setPassword("java");
 		ds.setInitialSize(10);
 		

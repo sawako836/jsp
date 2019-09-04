@@ -50,7 +50,7 @@
    
    <!-- 사용자 수정 -->
   <update id="updateUser" parameterType="user">
-		update users
+	 update users
 		set userNm = #{userNm},
 			pass = #{pass},
 			reg_dt = #{reg_dt},
@@ -60,7 +60,7 @@
 			zipcode = #{zipcode},
 			filename = #{filename},
 			realfilename = #{realfilename, jdbcType=VARCHAR}
-		where userid = #{userId}
+	  where userid = #{userId}
 	</update>
 </mapper>
 
