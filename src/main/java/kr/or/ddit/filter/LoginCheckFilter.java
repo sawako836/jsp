@@ -14,7 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import kr.or.ddit.user.model.User;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class LoginCheckFilter implements Filter {
 
 	public void destroy() {
@@ -37,7 +37,7 @@ public class LoginCheckFilter implements Filter {
 		
 		// 로그인을 체크하지 말아야 하는 url을 확인
 		// 정적인 자료에 대해서는 핵심 체크를 하지 않는다.
-		if(uri.startsWith("/login") ||
+		if(uri.startsWith(httpRequest.getContextPath() + "/login") ||
 		   uri.endsWith(".css") ||
 		   uri.endsWith(".js")) {
 			chain.doFilter(request, response);
@@ -47,7 +47,7 @@ public class LoginCheckFilter implements Filter {
 		else if(S_USERVO == null) {
 			// 로그인 화면으로 이동
 			HttpServletResponse httpResponse = (HttpServletResponse)response;
-			httpResponse.sendRedirect("/login");
+			httpResponse.sendRedirect(httpRequest.getContextPath() + "/login");
 		}
 		
 		// 로그인한 상황
